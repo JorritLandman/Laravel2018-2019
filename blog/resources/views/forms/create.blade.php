@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Form Validation using jQuery in Laravel</title>
+    <title>Form Create</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="container">
-      <h2>Form Validation using jQuery</h2><br/>
+      <h2>Form Validatie JS</h2><br/>
       <form method="post" action="{{url('forms')}}" id="form">
         @csrf
         <div class="row">
@@ -91,5 +91,60 @@
       </form>
     </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+   <script>
+    $(document).ready(function () {
+    $('#form').validate({ // initialize the plugin
+        rules: {
+            name: {
+                required: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            number: {
+                required: true,
+                digits: true
+                
+            },
+            minlength: {
+                required: true,
+                minlength: 5
+                
+            },
+            maxlength: {
+                required: true,
+                maxlength: 8
+                
+            },
+            minvalue: {
+                required: true,
+                min: 1
+                
+            },
+            maxvalue: {
+                required: true,
+                max: 100
+                
+            },
+            range: {
+                required: true,
+                range: [20, 40]
+                
+            },
+            url: {
+            required: true,
+            url: true
+            },
+            filename: {
+                required: true,
+                extension: "jpeg|png"
+            },
+        }
+    });
+});
+</script>
 
 </html>
